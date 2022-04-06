@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class Exercises {
     public static void main(String[] args) {
-        maxDivisibleByFour();
-
+//        maxDivisibleByFour();
+        largestOfSequence();
     }
 
     /*
@@ -35,4 +35,25 @@ public class Exercises {
 
         System.out.println(maxDivisibleByFour);
     }
+
+    /*
+    The largest element of a sequence
+    Given a sequence of positive integer numbers (which ends with the number 0). Find the largest element of the sequence.
+
+    The number 0 itself is not included in the sequence but serves only as a sign of the sequence’s end.
+     */
+
+    public static void largestOfSequence() {
+        Scanner scanner = new Scanner(System.in);
+        int max = 0;
+        int number;
+
+        do {
+            number = scanner.nextInt();
+            max = Math.max(number, max);
+        } while (number != 0);
+
+        System.out.println(max);
+    }
+
 }
