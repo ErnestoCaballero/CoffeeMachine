@@ -6,6 +6,10 @@ public class Main {
     final static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
+        coffeeRequest();
+    }
+
+    public static void coffeeRequest() {
         final int waterPerCup = 200;  // ml
         final int milkPerCup = 50;  // ml
         final int coffeePerCup = 15;  // g
