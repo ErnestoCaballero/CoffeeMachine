@@ -90,12 +90,10 @@ public class Exercises {
     public static void lengthOfSequence() {
         Scanner scanner = new Scanner(System.in);
         int count = 0;
-        int number;
 
-        do {
-            number = scanner.nextInt();
-            count += number != 0 ? 1 : 0;
-        } while (number != 0);
+        while (scanner.nextInt() != 0) {
+            count++;
+        }
 
         System.out.println(count);
     }
