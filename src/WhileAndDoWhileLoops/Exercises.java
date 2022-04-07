@@ -3,11 +3,14 @@ package WhileAndDoWhileLoops;
 import java.util.Scanner;
 
 public class Exercises {
+    final static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
 //        maxDivisibleByFour();
 //        largestOfSequence();
 //        sumOfElements();
-        lengthOfSequence();
+//        lengthOfSequence();
+        squaresNaturalNumbers();
 
     }
 
@@ -96,5 +99,25 @@ public class Exercises {
         }
 
         System.out.println(count);
+    }
+
+    /*
+    Squares of natural numbers
+    Read an integer number N from the input and print all the squares of positive integers:
+
+        -less than or equal to N,
+        -in ascending order.
+     */
+    public static void squaresNaturalNumbers() {
+        int input = scanner.nextInt();
+        int square;
+        int i = 1;
+
+        while (i <= Math.sqrt(input)) {
+            square = (int) Math.pow(i, 2);
+            System.out.println(square);
+            i++;
+        }
+
     }
 }
