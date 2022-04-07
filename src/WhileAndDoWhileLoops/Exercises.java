@@ -92,9 +92,10 @@ public class Exercises {
         int count = 0;
         int number;
 
-        while ((number = scanner.nextInt()) != 0) {
-            count++;
-        }
+        do {
+            number = scanner.nextInt();
+            count += number != 0 ? 1 : 0;
+        } while (number != 0);
 
         System.out.println(count);
     }
