@@ -1,5 +1,7 @@
 package WhileAndDoWhileLoops;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Exercises {
@@ -10,7 +12,9 @@ public class Exercises {
 //        largestOfSequence();
 //        sumOfElements();
 //        lengthOfSequence();
-        squaresNaturalNumbers();
+//        squaresNaturalNumbers();
+//        System.out.println(factorial(7));
+        smallestFactorial();
 
     }
 
@@ -118,6 +122,31 @@ public class Exercises {
             System.out.println(square);
             i++;
         }
+    }
 
+    /*
+    The smallest value
+    A user inputs a long positive number m. You need to find out what is the smallest int number n such that n! > m.
+
+    n!, or factorial n is a product of all natural numbers from 1 to n inclusive: for example, 5! = 5 * 4 * 3 * 2 * 1.
+     */
+
+    public static void smallestFactorial() {
+        long m = scanner.nextLong();
+        int n = 1;
+
+        while (factorial(n) <= m) {
+            n++;
+        }
+
+        System.out.println(n);
+    }
+
+    public static long factorial(int n) {
+        long res = 1;
+        for (int i = 1; i <= n; i++) {
+            res *= i;
+        }
+        return res;
     }
 }
