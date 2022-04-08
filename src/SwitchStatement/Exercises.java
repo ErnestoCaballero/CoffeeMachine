@@ -6,7 +6,9 @@ public class Exercises {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        direction2();
+//        direction2();
+        shape();
+
     }
 
     /*
@@ -52,6 +54,37 @@ public class Exercises {
         } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("error!");
         }
+    }
 
+    /*
+    SHAPE
+    Write a program, which reads the number of the shape (1 – square, 2 – circle, 3 – triangle, 4 – rhombus)
+    and prints the text "You have chosen a square" (or circle, or triangle, or rhombus, depending on the number).
+    If it is a number that doesn't correspond to any of the listed shapes,
+    the program should output: "There is no such shape!".
+
+    Note: the output text should exactly match the sample, including letters' case and location of spaces.
+     */
+
+    public static void shape() {
+        String input = scanner.nextLine();
+        String msg = "You have chosen a ";
+
+        switch (input) {
+            case "1":
+                System.out.println(msg + "square");
+                break;
+            case "2":
+                System.out.println(msg + "circle");
+                break;
+            case "3":
+                System.out.println(msg + "triangle");
+                break;
+            case "4":
+                System.out.println(msg + "rhombus");
+                break;
+            default:
+                System.out.println("There is no such shape!");
+        }
     }
 }
