@@ -54,7 +54,9 @@ public class Exercises {
 
     public static void integerBarrier() {
         final int barrier = 1_000;
+
         int sum = 0;
+        
         while (scanner.hasNextInt()) {
             int number = scanner.nextInt();
             if (number == 0 || sum >= barrier) {
