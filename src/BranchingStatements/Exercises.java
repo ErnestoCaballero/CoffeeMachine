@@ -115,12 +115,20 @@ public class Exercises {
      */
 
     public static void theSequence() {
-        int number = 5;
+        int nth = scanner.nextInt();
+        int count = 0;
+        int i = 1;
 
-        for (int i = 1; i <= number; i++) {
+        while (nth != count) {
             for (int j = 1; j <= i; j++) {
                 System.out.print(i + " ");
+                count++;
+
+                if (nth == count) {
+                    break;
+                }
             }
+            i++;
         }
     }
 }
