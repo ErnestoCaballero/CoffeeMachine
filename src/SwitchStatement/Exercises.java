@@ -6,7 +6,7 @@ public class Exercises {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        direction();
+        direction2();
     }
 
     /*
@@ -42,5 +42,16 @@ public class Exercises {
                 System.out.println("error!");
                 break;
         }
+    }
+
+    public static void direction2() {
+        String[] output = {"do not move", "move up", "move down", "move left", "move right"};
+
+        try {
+            System.out.println(output[scanner.nextInt()]);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("error!");
+        }
+
     }
 }
