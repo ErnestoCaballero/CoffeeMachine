@@ -1,8 +1,6 @@
 package SwitchStatement;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Exercises {
     private static Scanner scanner = new Scanner(System.in);
@@ -11,7 +9,8 @@ public class Exercises {
 //        direction2();
 //        shape();
 //        stringToNumber2();
-        harryPotter();
+//        harryPotter();
+        harryPotter2();
 
     }
 
@@ -179,5 +178,15 @@ public class Exercises {
         }
     }
 
+    public static void harryPotter2() {
+        String input = scanner.nextLine();
+        Map<String, String> houses = new HashMap<>();
+        houses.put("gryffindor", "bravery");
+        houses.put("hufflepuff", "loyalty");
+        houses.put("slytherin", "cunning");
+        houses.put("ravenclaw", "intellect");
+
+        System.out.println(houses.getOrDefault(input, "not a valid house"));
+    }
 
 }
