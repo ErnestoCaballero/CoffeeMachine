@@ -1,6 +1,7 @@
 package SwitchStatement;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class Exercises {
@@ -9,7 +10,7 @@ public class Exercises {
     public static void main(String[] args) {
 //        direction2();
 //        shape();
-        stringToNumber();
+        stringToNumber2();
 
     }
 
@@ -130,6 +131,16 @@ public class Exercises {
                 System.out.println();
                 break;
         }
+    }
+
+    /*
+    stringToNumber() using Arrays.asList() which returns an ArrayList
+     */
+    public static void stringToNumber2() {
+        String input = scanner.nextLine();
+        List<String> numbers = Arrays.asList("zero", "one", "two", "three", "four", "five",
+                "six", "seven", "eight", "nine");
+        System.out.println(numbers.indexOf(input));
     }
 
 }
