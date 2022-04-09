@@ -10,7 +10,8 @@ public class Exercises {
 //        shape();
 //        stringToNumber2();
 //        harryPotter();
-        harryPotter2();
+//        harryPotter2();
+        areaOfRoom();
 
     }
 
@@ -187,6 +188,59 @@ public class Exercises {
         houses.put("ravenclaw", "intellect");
 
         System.out.println(houses.getOrDefault(input, "not a valid house"));
+    }
+
+    /*
+    FLOOR-SPACE OF THE ROOM
+    Citizens of the country named Malevia often experiment with the shapes of their rooms.
+    The rooms can be triangular, rectangular, and round.
+
+    Write a program that calculates the floor area of the rooms.
+
+    Input data format: The type of the room shape and the relevant parameters.
+
+    Output data format: The area of the resulting room.
+
+    Note that the value of 3.14 is used instead of the number π in Malevia.
+     */
+
+    public static void areaOfRoom() {
+        String shape = scanner.nextLine();
+
+        switch (shape) {
+            case "triangle":
+                System.out.println(areaTriangle());
+                break;
+            case "rectangle":
+                System.out.println(areaRectangle());
+                break;
+            case "circle":
+                System.out.println(areaCircle());
+                break;
+            default:
+                System.out.println();
+                break;
+        }
+    }
+
+    private static double areaTriangle() {
+        double a = scanner.nextDouble();
+        double b = scanner.nextDouble();
+        double c = scanner.nextDouble();
+        double p = (a + b + c) / 2;
+        return Math.sqrt(p * (p - a) * (p - b) * (p - c));
+    }
+
+    private static double areaRectangle() {
+        double a = scanner.nextDouble();
+        double b = scanner.nextDouble();
+        return a * b;
+    }
+
+    private static double areaCircle() {
+        final double pi = 3.14;
+        double r = scanner.nextInt();
+        return pi * Math.pow(r, 2);
     }
 
 }
