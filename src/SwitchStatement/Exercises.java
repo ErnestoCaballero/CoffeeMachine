@@ -12,7 +12,8 @@ public class Exercises {
 //        harryPotter();
 //        harryPotter2();
 //        areaOfRoom();
-        simpleCalculator();
+//        simpleCalculator();
+
 
     }
 
