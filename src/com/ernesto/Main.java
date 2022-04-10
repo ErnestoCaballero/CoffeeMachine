@@ -15,23 +15,13 @@ public class Main {
     public static void main(String[] args) {
 //        coffeeRequest();
 //        numberOfServings();
-        machineStatusMessage();
         takeAction();
 
     }
 
-    private static void machineStatusMessage() {
-        System.out.println("The coffee machine has:");
-        System.out.println((int) coffeeMachine.getMlOfWater() + " ml of water");
-        System.out.println((int) coffeeMachine.getMlOfMilk() + " ml of milk");
-        System.out.println((int) coffeeMachine.getGmOfCoffeeBeans() + " g of coffee beans");
-        System.out.println(coffeeMachine.getNumCups() + " disposable cups");
-        System.out.println("$" + (int) coffeeMachine.getMoney() + " of money");
-        System.out.println();
-    }
 
     private static void takeAction() {
-        System.out.println("Write action (buy, fill, take): ");
+        System.out.println("Write action (buy, fill, take, remaining, exit): ");
         String action = scanner.nextLine();
 
         switch (action) {
@@ -44,12 +34,25 @@ public class Main {
             case "take":
                 withdrawMoney();
                 break;
+            case "remaining":
+                machineStatusMessage();
+                break;
+            case "exit":
+                return;
             default:
                 System.out.println("Option not available");
                 break;
         }
+    }
+
+    private static void machineStatusMessage() {
+        System.out.println("The coffee machine has:");
+        System.out.println((int) coffeeMachine.getMlOfWater() + " ml of water");
+        System.out.println((int) coffeeMachine.getMlOfMilk() + " ml of milk");
+        System.out.println((int) coffeeMachine.getGmOfCoffeeBeans() + " g of coffee beans");
+        System.out.println(coffeeMachine.getNumCups() + " disposable cups");
+        System.out.println("$" + (int) coffeeMachine.getMoney() + " of money");
         System.out.println();
-        machineStatusMessage();
     }
 
     private static void buyProduct() {
