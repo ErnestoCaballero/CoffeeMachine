@@ -1,7 +1,6 @@
 package com.ernesto;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -11,7 +10,7 @@ public class Main {
     final static int latteCode = 2;
     final static int cappuccinoCode = 3;
 
-    static CoffeeMachine coffeeMachine = new CoffeeMachine(400, 540, 120, 9, 550);
+    static MyCoffeeMachine coffeeMachine = new MyCoffeeMachine(400, 540, 120, 9, 550);
 
     public static void main(String[] args) {
 //        coffeeRequest();
@@ -19,12 +18,9 @@ public class Main {
         machineStatusMessage();
         takeAction();
 
-
-
-
     }
 
-    public static void machineStatusMessage() {
+    private static void machineStatusMessage() {
         System.out.println("The coffee machine has:");
         System.out.println((int) coffeeMachine.getMlOfWater() + " ml of water");
         System.out.println((int) coffeeMachine.getMlOfMilk() + " ml of milk");
@@ -34,7 +30,7 @@ public class Main {
         System.out.println();
     }
 
-    public static void takeAction() {
+    private static void takeAction() {
         System.out.println("Write action (buy, fill, take): ");
         String action = scanner.nextLine();
 
@@ -100,12 +96,12 @@ public class Main {
         coffeeMachine.setNumCups(coffeeMachine.getNumCups() + fillCups);
     }
 
-    public static void withdrawMoney() {
+    private static void withdrawMoney() {
         System.out.println("I gave you $" + (int) coffeeMachine.getMoney());
         coffeeMachine.setMoney(0);
     }
 
-    private static class CoffeeMachine {
+    private static class MyCoffeeMachine {
         private List<CoffeeType> coffeeTypeList;
         private double mlOfWater;
         private double mlOfMilk;
@@ -113,7 +109,7 @@ public class Main {
         private int numCups;
         private double money;
 
-        public CoffeeMachine(double mlOfWater, double mlOfMilk, double gmOfCoffeeBeans, int numCups, double money) {
+        private MyCoffeeMachine(double mlOfWater, double mlOfMilk, double gmOfCoffeeBeans, int numCups, double money) {
             this.mlOfWater = mlOfWater;
             this.mlOfMilk = mlOfMilk;
             this.gmOfCoffeeBeans = gmOfCoffeeBeans;
@@ -126,48 +122,48 @@ public class Main {
 
         }
 
-        public List<CoffeeType> getCoffeeTypeList() {
+        private List<CoffeeType> getCoffeeTypeList() {
             return coffeeTypeList;
         }
 
 
-        public double getMlOfWater() {
+        private double getMlOfWater() {
             return mlOfWater;
         }
 
-        public void setMlOfWater(double mlOfWater) {
+        private void setMlOfWater(double mlOfWater) {
             this.mlOfWater = mlOfWater;
         }
 
-        public double getMlOfMilk() {
+        private double getMlOfMilk() {
             return mlOfMilk;
         }
 
-        public void setMlOfMilk(double mlOfMilk) {
+        private void setMlOfMilk(double mlOfMilk) {
             this.mlOfMilk = mlOfMilk;
         }
 
-        public double getGmOfCoffeeBeans() {
+        private double getGmOfCoffeeBeans() {
             return gmOfCoffeeBeans;
         }
 
-        public void setGmOfCoffeeBeans(double gmOfCoffeeBeans) {
+        private void setGmOfCoffeeBeans(double gmOfCoffeeBeans) {
             this.gmOfCoffeeBeans = gmOfCoffeeBeans;
         }
 
-        public int getNumCups() {
+        private int getNumCups() {
             return numCups;
         }
 
-        public void setNumCups(int numCups) {
+        private void setNumCups(int numCups) {
             this.numCups = numCups;
         }
 
-        public double getMoney() {
+        private double getMoney() {
             return money;
         }
 
-        public void setMoney(double money) {
+        private void setMoney(double money) {
             this.money = money;
         }
 
@@ -181,7 +177,7 @@ public class Main {
         private int coffeePerCup;
         private double price;
 
-        public CoffeeType(String name, double waterPerCup, double milkPerCup, int coffeePerCup, double price) {
+        private CoffeeType(String name, double waterPerCup, double milkPerCup, int coffeePerCup, double price) {
             this.name = name;
             this.waterPerCup = waterPerCup;
             this.milkPerCup = milkPerCup;
@@ -189,67 +185,67 @@ public class Main {
             this.price = price;
         }
 
-        public String getName() {
+        private String getName() {
             return name;
         }
 
-        public void setName(String name) {
+        private void setName(String name) {
             this.name = name;
         }
 
-        public int getCup() {
+        private int getCup() {
             return cup;
         }
 
-        public double getWaterPerCup() {
+        private double getWaterPerCup() {
             return waterPerCup;
         }
 
-        public void setWaterPerCup(double waterPerCup) {
+        private void setWaterPerCup(double waterPerCup) {
             this.waterPerCup = waterPerCup;
         }
 
-        public double getMilkPerCup() {
+        private double getMilkPerCup() {
             return milkPerCup;
         }
 
-        public void setMilkPerCup(double milkPerCup) {
+        private void setMilkPerCup(double milkPerCup) {
             this.milkPerCup = milkPerCup;
         }
 
-        public int getCoffeePerCup() {
+        private int getCoffeePerCup() {
             return coffeePerCup;
         }
 
-        public void setCoffeePerCup(int coffeePerCup) {
+        private void setCoffeePerCup(int coffeePerCup) {
             this.coffeePerCup = coffeePerCup;
         }
 
-        public double getPrice() {
+        private double getPrice() {
             return price;
         }
 
-        public void setPrice(double price) {
+        private void setPrice(double price) {
             this.price = price;
         }
     }
 
     private static class Espresso extends CoffeeType {
-        public Espresso() {
+        private Espresso() {
             super("espresso",250, 0, 16, 4);
         }
 
     }
 
     private static class Latte extends CoffeeType {
-        public Latte() {
+        private Latte() {
             super("latte", 350, 75, 20, 7);
         }
 
     }
 
     private static class Cappuccino extends CoffeeType {
-        public Cappuccino() {
+        private Cappuccino() {
             super("cappuccino", 200, 100, 12, 6);
         }
 
