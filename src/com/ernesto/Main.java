@@ -9,20 +9,25 @@ public class Main {
     final static int espressoCode = 1;
     final static int latteCode = 2;
     final static int cappuccinoCode = 3;
+    static boolean execute = true;
 
     static MyCoffeeMachine coffeeMachine = new MyCoffeeMachine(400, 540, 120, 9, 550);
 
     public static void main(String[] args) {
 //        coffeeRequest();
 //        numberOfServings();
-        takeAction();
+        while (execute) {
+            takeAction();
+        }
 
     }
 
 
     private static void takeAction() {
         System.out.println("Write action (buy, fill, take, remaining, exit): ");
-        String action = scanner.nextLine();
+        String action = scanner.next();
+        scanner.nextLine();
+        System.out.println();
 
         switch (action) {
             case "buy":
@@ -38,6 +43,7 @@ public class Main {
                 machineStatusMessage();
                 break;
             case "exit":
+                execute = false;
                 return;
             default:
                 System.out.println("Option not available");
@@ -56,7 +62,7 @@ public class Main {
     }
 
     private static void buyProduct() {
-        System.out.println("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino: ");
+        System.out.println("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu: ");
         String product = scanner.nextLine();
 
         switch (product) {
@@ -69,19 +75,50 @@ public class Main {
             case "3":
                 buyCoffee(cappuccinoCode);
                 break;
+            case "back":
+                System.out.println();
+                return;
             default:
-                System.out.println("Option not available!");
+                System.out.println("Option not available!\n");
                 break;
         }
     }
 
     private static void buyCoffee(int n) {
         CoffeeType coffeeType = coffeeMachine.getCoffeeTypeList().get(n - 1);
-        coffeeMachine.setMlOfWater(coffeeMachine.getMlOfWater() - coffeeType.getWaterPerCup());
-        coffeeMachine.setMlOfMilk(coffeeMachine.getMlOfMilk() - coffeeType.getMilkPerCup());
-        coffeeMachine.setGmOfCoffeeBeans(coffeeMachine.getGmOfCoffeeBeans() - coffeeType.getCoffeePerCup());
-        coffeeMachine.setNumCups(coffeeMachine.getNumCups() - coffeeType.getCup());
-        coffeeMachine.setMoney(coffeeMachine.getMoney() + coffeeType.getPrice());
+
+        if (validateIngredients(n - 1)) {
+            System.out.println("I have enough resources, making you a coffee!\n");
+            coffeeMachine.setMlOfWater(coffeeMachine.getMlOfWater() - coffeeType.getWaterPerCup());
+            coffeeMachine.setMlOfMilk(coffeeMachine.getMlOfMilk() - coffeeType.getMilkPerCup());
+            coffeeMachine.setGmOfCoffeeBeans(coffeeMachine.getGmOfCoffeeBeans() - coffeeType.getCoffeePerCup());
+            coffeeMachine.setNumCups(coffeeMachine.getNumCups() - coffeeType.getCup());
+            coffeeMachine.setMoney(coffeeMachine.getMoney() + coffeeType.getPrice());
+        }
+    }
+
+    public static boolean validateIngredients(int n) {
+        CoffeeType coffeeType = coffeeMachine.getCoffeeTypeList().get(n);
+        boolean waterAvailability = coffeeMachine.getMlOfWater() - coffeeType.getWaterPerCup() >= 0;
+        boolean milkAvailability = coffeeMachine.getMlOfMilk() - coffeeType.getMilkPerCup() >= 0;
+        boolean coffeeAvailability = coffeeMachine.getGmOfCoffeeBeans() - coffeeType.getCoffeePerCup() >= 0;
+        boolean cupsAvailability = coffeeMachine.getNumCups() - coffeeType.getCup() >= 0;
+
+        if (!waterAvailability) {
+            System.out.println("Sorry, not enough water!\n");
+            return false;
+        } else if (!milkAvailability) {
+            System.out.println("Sorry, not enough milk!\n");
+            return false;
+        } else if (!coffeeAvailability) {
+            System.out.println("Sorry, not enough coffee beans!\n");
+            return false;
+        } else if (!cupsAvailability) {
+            System.out.println("Sorry, not enough cups!\n");
+            return false;
+        }
+
+        return true;
     }
 
     private static void fillMachine() {
@@ -97,10 +134,11 @@ public class Main {
         System.out.println("Write how many disposable cups of coffee you want to add: ");
         int fillCups = scanner.nextInt();
         coffeeMachine.setNumCups(coffeeMachine.getNumCups() + fillCups);
+        System.out.println();
     }
 
     private static void withdrawMoney() {
-        System.out.println("I gave you $" + (int) coffeeMachine.getMoney());
+        System.out.println("I gave you $" + (int) coffeeMachine.getMoney() + "\n");
         coffeeMachine.setMoney(0);
     }
 
