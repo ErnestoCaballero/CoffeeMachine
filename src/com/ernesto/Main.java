@@ -101,7 +101,8 @@ public class Main {
     }
 
     public static void withdrawMoney() {
-
+        System.out.println("I gave you $" + (int) coffeeMachine.getMoney());
+        coffeeMachine.setMoney(0);
     }
 
 
