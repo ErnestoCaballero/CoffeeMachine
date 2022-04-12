@@ -7,7 +7,8 @@ public class DeclaringMethods {
 
     public static void main(String[] args) {
 //        System.out.println(isVowel('A'));
-        System.out.println(getNumberOfMaxParam(12, 3, 12));
+//        System.out.println(getNumberOfMaxParam(12, 3, 12));
+        System.out.println(power(5, 1));
 
 
     }
@@ -52,6 +53,39 @@ public class DeclaringMethods {
         arr.add(c);
 
         return arr.indexOf(Collections.max(arr)) + 1;
+    }
+
+    /*
+    SUM OF NUMBERS IN THE RANGE
+    Implement a method sumInRange for calculating the sum of numbers in the range from (inclusive), to (exclusive).
+    Mind the type of the returning value.
+     */
+    public static long sumInRange(int from, int to) {
+        long sum = 0L;
+        for (int i = from; i < to; i++) {
+            sum += i;
+        }
+        return sum;
+    }
+
+    /*
+    RAISE TO THE POWER
+    You're given the method power that takes two int numbers n and m. The method should return the value of nm as a long value.
+
+    Write a body of the method.
+     */
+
+    public static long power(int n, int m) {
+        long pow = n;
+        if (m == 0) {
+            return 0;
+        } else {
+            for (int i = 1; i < m; i++) {
+                pow *= n;
+            }
+        }
+
+        return pow;
     }
 
 }
