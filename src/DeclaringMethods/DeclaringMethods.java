@@ -1,9 +1,15 @@
 package DeclaringMethods;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 public class DeclaringMethods {
 
     public static void main(String[] args) {
-        System.out.println(isVowel('A'));
+//        System.out.println(isVowel('A'));
+        System.out.println(getNumberOfMaxParam(12, 3, 12));
+
+
     }
 
     /*
@@ -30,5 +36,22 @@ public class DeclaringMethods {
         return false;
     }
 
-    
+    /*
+    FIND THE MAX OF THREE NUMBERS
+    Here is the method named getNumberOfMaxParam that takes three integer numbers and
+    returns the position of the first maximum in the order of the method parameters.
+
+    The method should return number 1, 2 or 3 respectively.
+
+    Write just a body of the method.
+     */
+    public static int  getNumberOfMaxParam(int a, int b, int c) {
+        ArrayList<Integer> arr = new ArrayList<>();
+        arr.add(a);
+        arr.add(b);
+        arr.add(c);
+
+        return arr.indexOf(Collections.max(arr)) + 1;
+    }
+
 }
