@@ -1,12 +1,11 @@
 package Tests;
 
+import java.util.Arrays;
+
 public class Tests {
     public static void main(String[] args) {
-        int[] arr = {4, 5, 6, 7};
-        traverseArray(arr);
-        System.out.println();
-        addOneToArray(arr);
-        traverseArray(arr);
+        double[] arr = new double[] {};
+        System.out.println(arr[0]);
 
 
 
@@ -23,6 +22,7 @@ public class Tests {
             arr[i] += 1;
         }
     }
+
 
 
 }
