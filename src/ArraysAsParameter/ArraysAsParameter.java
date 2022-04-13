@@ -5,13 +5,12 @@ import java.util.Scanner;
 public class ArraysAsParameter {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int size = scanner.nextInt();
-        int[] arr = new int[size];
-        for (int i = 0; i < arr.length; i++) {
+        int len = scanner.nextInt();
+        int[] arr = new int[len];
+        for (int i = 0; i < len; i++) {
             arr[i] = scanner.nextInt();
         }
-        int n = scanner.nextInt();
-        System.out.println(countCoincidence(arr, n));
+        System.out.println(sumOfArray(arr));
     }
 
     /*
@@ -69,7 +68,7 @@ public class ArraysAsParameter {
         }
     }
 
-    public static int countCoincidence(int[] arr, int n) {
+    public static int countOccurrences(int[] arr, int n) {
         int count = 0;
 //        for (int i = 0; i < arr.length; i++) {
 //            count += n == arr[i] ? 1 : 0;
@@ -80,6 +79,49 @@ public class ArraysAsParameter {
         return count;
     }
 
-    
+    /*
+    THE SUM OF ARRAY ELEMENTS
+    Write a program that calculates the sum of the elements of an array of ints.
+
+    Input data format
+
+    The first line contains the size of an array.
+    The second line contains elements of the array separated by spaces.
+
+    Output data format
+
+    The sum of the input array elements.
+     */
+    public static int sumOfArray(int[] arr) {
+        int sum = 0;
+        for (int i : arr) {
+            sum += i;
+        }
+
+        return sum;
+    }
+
+    /*
+    SUM ARRAY ELEMENTS GREATER THAN A VALUE
+    Write a program that reads an array of ints and an integer number n.
+    The program must sum all the array elements greater than n.
+
+    Input data format
+
+    The first line contains the size of an array.
+    The second line contains the elements of the array separated by spaces.
+    The third line contains the number n.
+
+    Output data format
+
+    Only a single number representing the sum.
+     */
+    public static int sumArrayGreaterValue(int[] arr, int n) {
+        int sum = 0;
+        for (int i : arr) {
+            sum += i > n ? 1 : 0;
+        }
+        return sum;
+    }
 
 }
