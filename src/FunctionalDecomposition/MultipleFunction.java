@@ -5,9 +5,11 @@ import java.util.Scanner;
 public class MultipleFunction {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        double x = scanner.nextDouble();
-        System.out.println(f(x));
+//        Scanner scanner = new Scanner(System.in);
+//        double x = scanner.nextDouble();
+//        System.out.println(f(x));
+        int i = 1996;
+        System.out.println(i);
     }
 
     public static double f(double x) {
