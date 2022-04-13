@@ -2,7 +2,10 @@ package ArraysAsParameter;
 
 public class ArraysAsParameter {
     public static void main(String[] args) {
-        inverseFlags(new boolean[] {true, false});
+        boolean[] myBooleans = {true, true, false, false};
+        traverseArray(myBooleans);
+        inverseFlags(myBooleans);
+        traverseArray(myBooleans);
     }
 
     /*
@@ -12,8 +15,20 @@ public class ArraysAsParameter {
      */
 
     public static void inverseFlags(boolean[] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = !arr[i];
+//        for (int i = 0; i < arr.length; i++) {
+//            arr[i] = !arr[i];
+//        }
+        int i = 0;
+        for (boolean bool : arr) {
+            arr[i] = !bool;
+            i++;
         }
+    }
+
+    static void traverseArray(boolean[] arr) {
+        for (boolean bool : arr) {
+            System.out.print(bool + " ");
+        }
+        System.out.println();
     }
 }
