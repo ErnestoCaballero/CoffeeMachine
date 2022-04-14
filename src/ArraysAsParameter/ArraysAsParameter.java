@@ -232,10 +232,11 @@ public class ArraysAsParameter {
         int rotations = scanner.nextInt();
 
         rotateArrayByN(input, rotations);
-        traverseArray(input);
+        System.out.println(String.join(" ", input));
     }
 
     public static void rotateArrayByN(String[] arr, int rotations) {
+        rotations = rotations % arr.length;
         for (int i = 0; i < rotations; i++) {
             rotateArrayByOne(arr);
         }
