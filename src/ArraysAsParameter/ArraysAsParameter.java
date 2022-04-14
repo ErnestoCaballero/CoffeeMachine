@@ -6,7 +6,8 @@ public class ArraysAsParameter {
     public static void main(String[] args) {
 //        sumArrayGreaterN();
 //        enterBox();
-        rotateArray();
+//        rotateArray();
+        isContain();
 
 
     }
@@ -248,6 +249,41 @@ public class ArraysAsParameter {
             arr[i] = arr[i - 1];
         }
         arr[0] = last;
+    }
+
+    /*
+    DOES AN ARRAY CONTAIN N?
+    Write a program that reads an array of integers and an integer.
+    The program must check if the array contains that number.
+
+    Input data format
+
+    The first line: the size of an array.
+
+    The second line: all the elements of the array separated by the space.
+
+    The third line: one integer.
+
+    Output data format
+
+    Only a single value: true or false.
+     */
+
+    public static void isContain() {
+        Scanner scanner = new Scanner(System.in);
+        int[] input = new int[scanner.nextInt()];
+        for (int i = 0; i < input.length; i++) {
+            input[i] = scanner.nextInt();
+        }
+        int n = scanner.nextInt();
+
+        for (int i : input) {
+            if (i == n) {
+                System.out.println(true);
+                return;
+            }
+        }
+        System.out.println(false);
     }
 
 }
