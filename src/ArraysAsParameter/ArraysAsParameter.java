@@ -10,7 +10,9 @@ public class ArraysAsParameter {
 //        isContain();
 //        indexOfMax();
 //        indexOfMax2();
-        triples();
+//        triples();
+//        containTwoNumbers();
+        System.out.println("hello".contains("llo"));
 
 
     }
@@ -388,5 +390,46 @@ public class ArraysAsParameter {
         for (int i = 0; i < arr.length; i++) {
             arr[i] = scanner.nextInt();
         }
+    }
+
+    public static void populateArray(String[] arr, Scanner scanner) {
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = scanner.next();
+        }
+    }
+
+    /*
+    Write a program that reads an unsorted array of integers and two numbers n and m.
+    The program must check if n and m occur next to each other in the array (in any order).
+
+    Input data format
+
+    The first line contains the size of an array.
+    The second line contains elements of the array.
+    The third line contains two integer numbers n and m.
+    All numbers in the same line are separated by the space character.
+
+    Output data format
+
+    Only a single value: true or false.
+     */
+
+    public static void containTwoNumbers() {
+        Scanner scanner = new Scanner(System.in);
+        int len = scanner.nextInt();
+        String[] input = new String[len];
+        populateArray(input, scanner);
+        String n = scanner.next();
+        String m = scanner.next();
+        boolean flag = false;
+
+        for (int i = 0; i < input.length - 1; i++) {
+            if (input[i].equals(n) && input[i + 1].equals(m) || input[i].equals(m) && input[i + 1].equals(n)) {
+                flag = true;
+                break;
+            }
+        }
+
+        System.out.println(flag);
     }
 }
