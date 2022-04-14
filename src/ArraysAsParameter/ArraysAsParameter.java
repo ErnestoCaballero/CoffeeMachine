@@ -12,7 +12,8 @@ public class ArraysAsParameter {
 //        indexOfMax2();
 //        triples();
 //        containTwoNumbers();
-        isAscending();
+//        isAscending();
+        isAscending2();
 
 
     }
@@ -462,5 +463,21 @@ public class ArraysAsParameter {
         }
 
         System.out.println(flag);
+    }
+
+    public static void isAscending2() {
+        Scanner scanner = new Scanner(System.in);
+        int[] arr = new int[scanner.nextInt()];
+        arr[0] = scanner.nextInt();
+
+        for (int i = 1; i < arr.length; i++) {
+            arr[i] = scanner.nextInt();
+            if (arr[i] < arr[i - 1]) {
+                System.out.println(false);
+                return;
+            }
+        }
+
+        System.out.println(true);
     }
 }
