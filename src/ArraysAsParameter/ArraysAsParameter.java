@@ -5,7 +5,9 @@ import java.util.Scanner;
 public class ArraysAsParameter {
     public static void main(String[] args) {
 //        sumArrayGreaterN();
-        enterBox();
+//        enterBox();
+        rotateArray();
+
 
     }
 
@@ -35,6 +37,13 @@ public class ArraysAsParameter {
 
     static void traverseArray(int[] arr) {
         for (int n : arr) {
+            System.out.print(n + " ");
+        }
+        System.out.println();
+    }
+
+    static void traverseArray(String[] arr) {
+        for (String n : arr) {
             System.out.print(n + " ");
         }
         System.out.println();
@@ -205,6 +214,7 @@ public class ArraysAsParameter {
     }
 
     /*
+    RIGHT ROTATION
     A right rotation is an operation that shifts each element of an array to the right. For example, if an array is {1,2,3,4,5} and we right rotate it by 1, the new array will be {5,1,2,3,4}. If we rotate it by 2, the new array will be {4,5,1,2,3}. It goes like this: {1,2,3,4,5} -> {5,1,2,3,4} -> {4,5,1,2,3}.
 
     Write a program that performs a right rotation on an array by a given number.
@@ -216,5 +226,27 @@ public class ArraysAsParameter {
     Output format:
     Resulting array
      */
+    public static void rotateArray() {
+        Scanner scanner = new Scanner(System.in);
+        String[] input = scanner.nextLine().split(" ");
+        int rotations = scanner.nextInt();
+
+        rotateArrayByN(input, rotations);
+        traverseArray(input);
+    }
+
+    public static void rotateArrayByN(String[] arr, int rotations) {
+        for (int i = 0; i < rotations; i++) {
+            rotateArrayByOne(arr);
+        }
+    }
+
+    public static void rotateArrayByOne(String[] arr) {
+        String last = arr[arr.length - 1];
+        for (int i = arr.length - 1; i >= 1; i--) {
+            arr[i] = arr[i - 1];
+        }
+        arr[0] = last;
+    }
 
 }
