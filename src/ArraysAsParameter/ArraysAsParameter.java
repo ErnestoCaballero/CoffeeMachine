@@ -12,7 +12,7 @@ public class ArraysAsParameter {
 //        indexOfMax2();
 //        triples();
 //        containTwoNumbers();
-        System.out.println("hello".contains("llo"));
+        isAscending();
 
 
     }
@@ -426,6 +426,37 @@ public class ArraysAsParameter {
         for (int i = 0; i < input.length - 1; i++) {
             if (input[i].equals(n) && input[i + 1].equals(m) || input[i].equals(m) && input[i + 1].equals(n)) {
                 flag = true;
+                break;
+            }
+        }
+
+        System.out.println(flag);
+    }
+
+    /*
+    CHECK IF AN ARRAY IS SORTED ASCENDING
+    Write a program that reads an array of int's and checks if the array is sorted ascending (from smallest to largest number).
+
+    Input data format
+
+    The first line contains the size of an array.
+    The second line contains elements of the array separated by spaces.
+
+    Output data format
+
+    Only a single value: true or false.
+     */
+
+    public static void isAscending() {
+        Scanner scanner = new Scanner(System.in);
+        int len = scanner.nextInt();
+        int[] input = new int[len];
+        populateArray(input, scanner);
+        boolean flag = true;
+
+        for (int i = 0; i < input.length - 1; i++) {
+            if (input[i] > input[i + 1]) {
+                flag = false;
                 break;
             }
         }
