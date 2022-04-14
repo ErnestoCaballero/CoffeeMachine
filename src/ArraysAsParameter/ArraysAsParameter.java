@@ -4,13 +4,9 @@ import java.util.Scanner;
 
 public class ArraysAsParameter {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int len = scanner.nextInt();
-        int[] arr = new int[len];
-        for (int i = 0; i < len; i++) {
-            arr[i] = scanner.nextInt();
-        }
-        System.out.println(sumOfArray(arr));
+//        sumArrayGreaterN();
+        enterBox();
+
     }
 
     /*
@@ -119,9 +115,93 @@ public class ArraysAsParameter {
     public static int sumArrayGreaterValue(int[] arr, int n) {
         int sum = 0;
         for (int i : arr) {
-            sum += i > n ? 1 : 0;
+            sum += i > n ? i : 0;
         }
         return sum;
+    }
+
+    public static void sumArrayGreaterN() {
+        Scanner scanner = new Scanner(System.in);
+        int[] arr = new int[scanner.nextInt()];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = scanner.nextInt();
+        }
+
+        int n = scanner.nextInt();
+        int sum = 0;
+
+        for (int i : arr) {
+            sum += i > n ? i : 0;
+        }
+
+        System.out.println(sum);
+    }
+
+    /*
+    BOXES
+    There are two boxes on the table. The first box has a size of X1 x Y1 x Z1,
+    and the second box has a size of X2 x Y2 x Z2.
+    You need to determine whether one of the boxes can be put inside the other.
+    It should go in without sticking out. You can rotate both boxes as you want.
+
+    Important: two equally sized boxes cannot be placed inside one another.
+    See the third test case as an example of how the borderline case should be treated.
+
+    Input consists of two lines:
+
+    the first line contains numbers X1, Y1, Z1;
+    the second line contains numbers X2, Y2, Z2.
+    All numbers are integers and greater than 0.
+
+    Output:
+
+    "Box 1 < Box 2", if the first box can be put inside the second box ;
+    "Box 1 > Box 2", if the second box can be put inside the first box;
+    otherwise, output "Incompatible".
+     */
+    public static void enterBox() {
+        final int sides = 3;
+        Scanner scanner = new Scanner(System.in);
+        int[] box1 = new int[sides];
+        int[] box2 = new int[sides];
+
+        for (int i = 0; i < sides; i++) {
+            box1[i] = scanner.nextInt();
+        }
+
+        for (int i = 0; i < sides; i++) {
+            box2[i] = scanner.nextInt();
+        }
+        System.out.println(isSmaller(box1, box2) ? "Box 1 < Box 2"
+                : isSmaller(box2, box1) ? "Box 1 > Box 2"
+                : "Incompatible");
+
+    }
+
+    public static Boolean isSmaller(int[] box1, int[] box2) {
+        // starting position each side along side each other (x1, x2), (y1, y2), (z1, z2)
+        boolean t1 = box1[0] < box2[0] && box1[1] < box2[1] && box1[2] < box2[2];
+        // rotating 90° up in the x axis from starting position
+        boolean t2 = box1[0] < box2[0] && box1[1] < box2[2] && box1[2] < box2[1];
+        // rotating 90° right in the z axis from starting position
+        boolean t3 = box1[0] < box2[1] && box1[1] < box2[0] && box1[2] < box2[2];
+        // rotating 90° in the y axis and 90° up in the x axis from starting position
+        boolean t4 = box1[0] < box2[1] && box1[1] < box2[2] && box1[2] < box2[0];
+        // rotating 90° up in the y axis and 90° right in the z axis from starting position
+        boolean t5 = box1[0] < box2[2] && box1[1] < box2[0] && box1[2] < box2[1];
+        // rotating 90° up on the y axis from starting position
+        boolean t6 = box1[0] < box2[2] && box1[1] < box2[1] && box1[2] < box2[0];
+
+        boolean test1 = t1 || t2 || t3;
+        boolean test2 = t4 || t5 || t6;
+
+        return test1 || test2;
+//        return box1[0] < box2[0] && box1[1] < box2[1] && box1[2] < box2[2]
+//                || box1[0] < box2[0] && box1[1] < box2[2] && box1[2] < box2[1]
+//                || box1[0] < box2[1] && box1[1] < box2[0] && box1[2] < box2[2]
+//                || box1[0] < box2[1] && box1[1] < box2[2] && box1[2] < box2[0]
+//                || box1[0] < box2[2] && box1[1] < box2[0] && box1[2] < box2[1]
+//                || box1[0] < box2[2] && box1[1] < box2[1] && box1[2] < box2[0];
     }
 
 }

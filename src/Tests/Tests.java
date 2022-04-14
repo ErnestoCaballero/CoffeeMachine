@@ -4,9 +4,7 @@ import java.util.Arrays;
 
 public class Tests {
     public static void main(String[] args) {
-        double[] arr = new double[] {};
-        System.out.println(arr[0]);
-
+        
 
 
     }
