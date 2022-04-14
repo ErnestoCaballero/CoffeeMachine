@@ -8,7 +8,8 @@ public class ArraysAsParameter {
 //        enterBox();
 //        rotateArray();
 //        isContain();
-        indexOfMax();
+//        indexOfMax();
+        indexOfMax2();
 
 
     }
@@ -332,4 +333,22 @@ public class ArraysAsParameter {
         return -1;
     }
 
+    public static void indexOfMax2() {
+        Scanner scanner = new Scanner(System.in);
+        int length = scanner.nextInt();
+
+        int[] array = new int[length];
+        int max = Integer.MIN_VALUE;
+        int maxIndex = 0;
+
+        for (int i = 0; i < length; i++) {
+            array[i] = scanner.nextInt();
+            if (max < array[i]) {
+                max = array[i];
+                maxIndex = i;
+            }
+        }
+
+        System.out.println(maxIndex);
+    }
 }
