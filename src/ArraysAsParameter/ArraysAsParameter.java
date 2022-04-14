@@ -7,7 +7,8 @@ public class ArraysAsParameter {
 //        sumArrayGreaterN();
 //        enterBox();
 //        rotateArray();
-        isContain();
+//        isContain();
+        indexOfMax();
 
 
     }
@@ -284,6 +285,51 @@ public class ArraysAsParameter {
             }
         }
         System.out.println(false);
+    }
+
+    /*
+    THE INDEX OF THE FIRST MAX IN AN ARRAY
+    Write a program that reads an array of ints and finds the index of the first maximum in that array.
+
+    Input data format
+
+    The first line contains the number of elements in the array.
+
+    The second line contains the array elements separated by spaces.
+
+    An array always has at least one element.
+
+    Output data format
+
+    Only a single integer value: the index of the first maximum.
+     */
+
+    public static void indexOfMax() {
+        Scanner scanner = new Scanner(System.in);
+        int[] input = new int[scanner.nextInt()];
+        for (int i = 0; i < input.length; i++) {
+            input[i] = scanner.nextInt();
+        }
+
+        System.out.println(indexOf(input, findMax(input)));
+    }
+
+    public static int findMax(int[] arr) {
+        int max = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            max = arr[i] > max ? arr[i] : max;
+        }
+
+        return max;
+    }
+
+    public static int indexOf(int[] arr, int number) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == number) {
+                return i;
+            }
+        }
+        return -1;
     }
 
 }
