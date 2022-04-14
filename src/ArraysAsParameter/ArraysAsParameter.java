@@ -13,7 +13,8 @@ public class ArraysAsParameter {
 //        triples();
 //        containTwoNumbers();
 //        isAscending();
-        isAscending2();
+//        isAscending2();
+        maxAdjacentProduct();
 
 
     }
@@ -479,5 +480,33 @@ public class ArraysAsParameter {
         }
 
         System.out.println(true);
+    }
+
+    /*
+    THE MAXIMUM PRODUCT OF ADJACENT ELEMENTS
+    Write a program that reads an array of ints and outputs the maximum product of two adjacent elements in the
+    given array of non-negative numbers.
+
+    Input data format
+
+    The first line of the input contains the number of elements in the array.
+
+    The second line contains the elements of the array separated by spaces.
+
+    The array always has at least two elements.
+     */
+    public static void maxAdjacentProduct() {
+        Scanner scanner = new Scanner(System.in);
+        int[] arr = new int[scanner.nextInt()];
+        arr[0] = scanner.nextInt();
+        arr[1] = scanner.nextInt();
+        int maxProd = arr[0] * arr[1];
+
+        for (int i = 2; i < arr.length; i++) {
+            arr[i] = scanner.nextInt();
+            maxProd = Math.max(arr[i] * arr[i - 1], maxProd);
+        }
+
+        System.out.println(maxProd);
     }
 }
