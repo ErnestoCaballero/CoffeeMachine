@@ -44,6 +44,13 @@ public class ArraysAsParameter {
         System.out.println();
     }
 
+    static void traverseArray(double[] arr) {
+        for (double bool : arr) {
+            System.out.print(bool + " ");
+        }
+        System.out.println();
+    }
+
     static void traverseArray(int[] arr) {
         for (int n : arr) {
             System.out.print(n + " ");
@@ -401,6 +408,7 @@ public class ArraysAsParameter {
         }
     }
 
+
     /*
     Write a program that reads an unsorted array of integers and two numbers n and m.
     The program must check if n and m occur next to each other in the array (in any order).
@@ -544,7 +552,14 @@ public class ArraysAsParameter {
             totalTaxes[i] = companies[i] * taxRate[i] / percentage;
         }
 
+        int maxIndex = 0;
 
+        for (int i = 0; i < totalTaxes.length; i++) {
+            if (totalTaxes[i] > totalTaxes[maxIndex]) {
+                maxIndex = i;
+            }
+        }
 
+        System.out.println(maxIndex + 1);
     }
 }
