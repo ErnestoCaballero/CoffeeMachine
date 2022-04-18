@@ -2,24 +2,17 @@ package InstanceMethods;
 
 public class Main {
     public static void main(String[] args) {
-//        Clock clock = new Clock();
-//        printStatus(clock);
-//        clock.next();
-//        printStatus(clock);
+        Tree t1 = new Tree();
+        Tree t2 = t1;
+        Tree t3 = t2;
 
-        Complex complex1 = new Complex();
-        complex1.real = 10;
-        complex1.imaginary = 4;
-        System.out.println(complex1.toString());
-
-        Complex complex2 = new Complex();
-        complex2.real = 6;
-        complex2.imaginary = 6;
-        System.out.println(complex2.toString());
-        System.out.println();
-
-        complex1.add(complex2);
-        System.out.println(complex1.toString());
+        t1 = new Tree();
+        t1.age = 5;
+        t2.age = 10;
+        t3  = null;
+        System.out.println(t1.age);
+        System.out.println(t2.age);
+        System.out.println(t3.age);
     }
 
     static void printStatus(Clock clock) {
