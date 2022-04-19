@@ -2,103 +2,24 @@ package Enums;
 
 class Move {
     public static void moveRobot(Robot robot, int toX, int toY) {
-        int stepsInX = robot.getX() - toX;
-        int stepsInY = robot.getY() - toY;
+        Direction desiredDirectionX = toX > robot.getX() ? Direction.RIGHT : Direction.LEFT;
 
-        System.out.println("StepsInX = " + stepsInX + " | stepsInY  = " + stepsInY);
-        handleX(robot, stepsInX);
-        handleY(robot, stepsInY);
-    }
-
-    static void handleX(Robot robot, int stepsInX) {
-        if (stepsInX < 0) {
-            switch (robot.getDirection()) {
-                case UP:
-                    robot.turnRight();
-                    System.out.println("robot.turnRight();");
-                    break;
-                case RIGHT:
-                    System.out.println("Don't move");
-                    break;
-                case DOWN:
-                    robot.turnLeft();
-                    System.out.println("robot.turnLeft();");
-                    break;
-                case LEFT:
-                    robot.turnRight();
-                    robot.turnRight();
-                    System.out.println("robot.turnLeft(); x2");
-                    break;
-                default:
-                    System.out.println("Not a valid direction");
-                    break;
-            }
-        } else {
-            switch (robot.getDirection()) {
-                case UP:
-                    robot.turnLeft();
-                    System.out.println("robot.turnLeft();");
-                    break;
-                case RIGHT:
-                    robot.turnLeft();
-                    robot.turnLeft();
-                    System.out.println("robot.turnLeft(); x2");
-                    break;
-                case DOWN:
-                    robot.turnRight();
-                    System.out.println("robot.turnRight();");
-                    break;
-                case LEFT:
-                    System.out.println("Don't move");
-                    break;
-                default:
-                    System.out.println("Not a valid direction");
-                    break;
-            }
+        while (robot.getDirection() != desiredDirectionX) {
+            robot.turnRight();
         }
 
-        for (int i = 0; i < Math.abs(stepsInX); i++) {
+        while (robot.getX() != toX) {
             robot.stepForward();
-            System.out.println("robot.stepForward(); in x");
         }
 
-        robot.printCurrentLocation();
-    }
+        Direction desiredDirectionY = toY > robot.getY() ? Direction.UP : Direction.DOWN;
 
-    static void handleY(Robot robot, int stepsInY) {
-        if (stepsInY < 0) {
-            switch (robot.getDirection()) {
-                case RIGHT:
-                    robot.turnLeft();
-                    System.out.println("robot.turnLeft();");
-                    break;
-                case LEFT:
-                    robot.turnRight();
-                    System.out.println("robot.turnRight();");
-                    break;
-                default:
-                    System.out.println("X was not handle correctly");
-                    break;
-            }
-        } else {
-            switch (robot.getDirection()) {
-                case RIGHT:
-                    robot.turnRight();
-                    System.out.println("robot.turnRight();");
-                    break;
-                case LEFT:
-                    robot.turnLeft();
-                    System.out.println("robot.turnLeft();");
-                    break;
-                default:
-                    System.out.println("X was not handle correctly");
-                    break;
-            }
+        while (robot.getDirection() != desiredDirectionY) {
+            robot.turnLeft();
         }
 
-        for (int i = 0; i < Math.abs(stepsInY); i++) {
+        while (robot.getY() != toY) {
             robot.stepForward();
-            System.out.println("robot.stepForward(); in y");
         }
     }
 }
