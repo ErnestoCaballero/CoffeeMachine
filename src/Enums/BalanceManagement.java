@@ -12,7 +12,7 @@ public class BalanceManagement {
         account.balance = 2000L;
         changeBalance(account, Operation.WITHDRAW, 5000L);
         System.out.println(account.balance);
-        
+
     }
 
     public static boolean changeBalance(Account account, Operation operation, Long sum) {
